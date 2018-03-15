@@ -17,17 +17,29 @@ $clubs_img= array(
  );
 
 
-
-function load_css()
+//some default function to have
+function load_css($css_links)
 {
-  foreach($css_links as $x)
+  for($i=0;$i<$css_link.length())
+  {
     echo '<link href="'.$EXTERNAL_ASSETS_DIR.'/'.$x.'" rel="stylesheet">';
+  }
 }
 
-function load_js()
+function load_js($js_links)
 {
   foreach($css_links as $x)
+  {
     echo '<script src="'.$EXTERNAL_ASSETS_DIR.'/'.$x.'"></script>';
+  }
+}
+
+function connect_db(){
+  $conn = new mysqli($servername, $username, $password,"my_".$username);
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+   }
+  return $conn;
 }
 
 ?>

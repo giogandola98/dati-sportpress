@@ -3,17 +3,17 @@
 /*
 Plugin Name:  Dati-sportpress
 Description:  Created by Giorgio Gandola and Samuele Pasini
-Version:      1.0.2
+Version:      1.0.2b1
+Author:       Giorgio Gandola
+License:      GPL2
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
-/* Inserisci le tue funzioni personalizzate */
-function connect_db(){
-  require_once('settings.php');
-  $conn = new mysqli($servername, $username, $password,"my_".$username);
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-   }
-  return $conn;
-}
+
+//settings inclusion
+require_once('settings.php');
+
+
+
 function getpath_name(&$type)
 {
   $path= ($_SERVER['REQUEST_URI']);
