@@ -1,8 +1,9 @@
 
 <?php
 /*
-Plugin Name: dati-sportpress
-Description: Created by Giorgio Gandola and Samuele Pasini
+Plugin Name:  Dati-sportpress
+Description:  Created by Giorgio Gandola and Samuele Pasini
+Version:      1.0.2
 */
 /* Inserisci le tue funzioni personalizzate */
 function connect_db(){
