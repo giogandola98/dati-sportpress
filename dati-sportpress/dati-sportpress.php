@@ -1,18 +1,19 @@
 
 <?php
 /*
-Plugin Name: dati-sportpress
-Description: Created by Giorgio Gandola and Samuele Pasini
+Plugin Name:  Dati-sportpress
+Description:  Created by Giorgio Gandola and Samuele Pasini
+Version:      1.0.2b1
+Author:       Giorgio Gandola
+License:      GPL2
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
-/* Inserisci le tue funzioni personalizzate */
-function connect_db(){
-  require_once('settings.php');
-  $conn = new mysqli($servername, $username, $password,"my_".$username);
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-   }
-  return $conn;
-}
+
+//settings inclusion
+require_once('settings.php');
+
+
+
 function getpath_name(&$type)
 {
   $path= ($_SERVER['REQUEST_URI']);
@@ -48,41 +49,39 @@ function run_query(&$segnati,&$subiti,&$occasioni)
    $conn->close();
 }
 
+function print_single_counter($value,$description,$imglink)
+{
+  echo '
+      <div class="col-md-3">
+          <div class="single_counter p-y-2 m-t-1">
+              <i class="m-b-1"><img src="'.$imglink.'"></i>
+              <h2 class="statistic-counter">'.$value.'</h2>
+              <p>'.$description.'</p>
+          </div>
+      </div>';
+}
 function print_squadra_form()
 {
+   global $css_links,$js_links,$clubs_img;
    $segnati;$subiti;$occasioni;
    run_query($segnati,$subiti,$occasioni);
+   load_css($css_links);
+   load_js($js_links);
    echo '
-   <link href="./bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <link href="./stylesheets.css" rel="stylesheet" id="bootstrap-css">
-   <script src="./jquery-1.11.1.min.js.trasferimento"></script>
-   <link rel="stylesheet" href="./font-awesome.min.css">
        <section id="counter" class="counter">
              <div class="main_counter_area">
                  <div class="overlay p-y-3">
                      <div class="container">
                          <div class="row">
-                             <div class="main_counter_content text-center white-text wow fadeInUp">
-                                 <div class="col-md-3">
-                                     <div class="single_counter p-y-2 m-t-1">
-                                         <i class="m-b-1"><img src="https://i0.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/goalfatti.png?zoom=1.25&fit=90%2C90"></i>
-                                         <h2 class="statistic-counter">'.$segnati.'</h2>
-                                         <p>Goal Segnati</p>
-                                     </div>
-                                 </div>
-                                 <div class="col-md-3">
-                                     <div class="single_counter p-y-2 m-t-1">
-                                         <i class="m-b-1"><img src="https://i1.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/goalsubiti.png?zoom=1.25&fit=90%2C90"></i>
-                                         <h2 class="statistic-counter">'.$subiti.'</h2>
-                                         <p>Goal Subiti</p>
-                                     </div>
-                                 </div>
-                                 <div class="col-md-3">
-                                     <div class="single_counter p-y-2 m-t-1">
-                                         <i class="m-b-1"><img src="https://i1.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/occasioni.png?zoom=1.25&fit=90%2C90"></i>
-                                         <h2 class="statistic-counter">'.$occasioni.'</h2>
-                                         <p>Occasioni Create</p>
-                                     </div>
+                         <div class="main_counter_content text-center white-text wow fadeInUp">';
+                         print_r($clubs_img);
+                         print_r($clubs_img["segnati"]);
+                         echo 'ciao';
+                         print_single_counter($segnati,"Goal Segnati",$clubs_img["segnati"]);
+                         print_single_counter($segnati,"Goal Subiti",$clubs_img["subiti"]);
+                         print_single_counter($segnati,"Occasioni",$clubs_img["occasioni"]);
+
+echo'
                                  </div>
                              </div>
                          </div>
@@ -90,8 +89,7 @@ function print_squadra_form()
                  </div>
              </div>
          </section>
- <script type="text/javascript" src="./jquery.waypoints.min.js.trasferimento"></script>
- <script type="text/javascript" src="./jquery.counterup.min.js.trasferimento"></script>
+
  <script type="text/javascript">
              jQuery(\'.statistic-counter\').counterUp({
                  delay: 4,
