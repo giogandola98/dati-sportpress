@@ -20,9 +20,9 @@ $EXTERNAL_ASSETS_DIR='';
 //some default functions
 function load_css($css_links)
 {
-  for($i=0;$i<count($css_links);$i++)
+  foreach ($css_links as $i => $value)
   {
-    echo '<link href="'.$EXTERNAL_ASSETS_DIR.'/'.$css_links[i].'" rel="stylesheet">';
+    echo '<link href="'.$EXTERNAL_ASSETS_DIR.'/'.$css_links[$i].'" rel="stylesheet">';
   }
 }
 
@@ -30,7 +30,7 @@ function load_js($js_links)
 {
   for($i=0;$i<count($js_links);$i++)
   {
-    echo '<script src="'.$EXTERNAL_ASSETS_DIR.'/'.$js_links.'"></script>';
+    echo '<script src="'.$EXTERNAL_ASSETS_DIR.'/'.$js_links[$i].'"></script>';
   }
 }
 

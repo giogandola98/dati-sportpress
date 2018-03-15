@@ -54,7 +54,7 @@ function print_single_counter($value,$description,$imglink)
   echo '
       <div class="col-md-3">
           <div class="single_counter p-y-2 m-t-1">
-              <i class="m-b-1">'.$imglink.'<img src=""></i>
+              <i class="m-b-1"><img src="'.$imglink.'"></i>
               <h2 class="statistic-counter">'.$value.'</h2>
               <p>'.$description.'</p>
           </div>
@@ -62,6 +62,7 @@ function print_single_counter($value,$description,$imglink)
 }
 function print_squadra_form()
 {
+   global $css_links,$js_links,$clubs_img;
    $segnati;$subiti;$occasioni;
    run_query($segnati,$subiti,$occasioni);
    load_css($css_links);
