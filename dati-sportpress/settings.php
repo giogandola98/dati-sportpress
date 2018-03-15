@@ -5,7 +5,7 @@ define("SERVERNAME", "localhost");
 define("PASSWORD", "merdine98");
 
 //external js and css links path
-$EXTERNAL_ASSETS_DIR='';
+
  $js_links=array('jquery-1.11.1.min.js.trasferimento','jquery.waypoints.min.js.trasferimento','jquery.counterup.min.js.trasferimento');
  $css_links=array('./bootstrap.min.css','stylesheets.css','font-awesome.min.css');
 
@@ -22,7 +22,7 @@ function load_css($css_links)
 {
   foreach ($css_links as $i => $value)
   {
-    echo '<link href="'.$EXTERNAL_ASSETS_DIR.'/'.$css_links[$i].'" rel="stylesheet">';
+    echo '<link href="'.plugins_url('dati-sportpress/include').'/'.$css_links[$i].'" rel="stylesheet">';
   }
 }
 
@@ -30,7 +30,7 @@ function load_js($js_links)
 {
   for($i=0;$i<count($js_links);$i++)
   {
-    echo '<script src="'.$EXTERNAL_ASSETS_DIR.'/'.$js_links[$i].'"></script>';
+    echo '<script src="'.plugins_url('dati-sportpress/include').'/'.$js_links[$i].'"></script>';
   }
 }
 
