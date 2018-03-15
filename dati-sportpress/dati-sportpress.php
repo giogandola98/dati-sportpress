@@ -2,7 +2,7 @@
 <?php
 /*
 Plugin Name: dati-sportpress
-Description: Samuele Pasini e Giorgio Gandola hanno bestemmiato tanto
+Description: Created by Giorgio Gandola and Samuele Pasini
 */
 /* Inserisci le tue funzioni personalizzate */
 function connect_db(){
