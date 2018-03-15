@@ -64,8 +64,8 @@ function print_squadra_form()
 {
    $segnati;$subiti;$occasioni;
    run_query($segnati,$subiti,$occasioni);
-   load_css();
-   load_js();
+   load_css($css_links);
+   load_js($js_links);
    echo '
        <section id="counter" class="counter">
              <div class="main_counter_area">
@@ -73,9 +73,12 @@ function print_squadra_form()
                      <div class="container">
                          <div class="row">
                          <div class="main_counter_content text-center white-text wow fadeInUp">';
-                         print_single_counter($segnati,"Goal Segnati",$clubs_img['segnati']);
-                         print_single_counter($segnati,"Goal Subiti",$clubs_img['subiti']);
-                         print_single_counter($segnati,"Occasioni",$clubs_img['occasioni']);
+                         print_r($clubs_img);
+                         print_r($clubs_img["segnati"]);
+                         echo 'ciao';
+                         print_single_counter($segnati,"Goal Segnati",$clubs_img["segnati"]);
+                         print_single_counter($segnati,"Goal Subiti",$clubs_img["subiti"]);
+                         print_single_counter($segnati,"Occasioni",$clubs_img["occasioni"]);
 
 echo'
                                  </div>
