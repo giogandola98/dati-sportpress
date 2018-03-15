@@ -56,7 +56,7 @@ function print_single_counter($value,$description,$imglink)
           <div class="single_counter p-y-2 m-t-1">
               <i class="m-b-1"><img src="'.$imglink.'"></i>
               <h2 class="statistic-counter">'.$value.'</h2>
-              <p>'.$description.'</p>
+              <p class="my-counter">'.$description.'</p>
           </div>
       </div>';
 }
