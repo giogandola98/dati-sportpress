@@ -20,13 +20,13 @@ $clubs_img= array(
 
 function load_css()
 {
-  for($x : $css_links)
+  foreach($css_links as $x)
     echo '<link href="'.$EXTERNAL_ASSETS_DIR.'/'.$x.'" rel="stylesheet">';
 }
 
 function load_js()
 {
-  for($x : $js_links)
+  foreach($css_links as $x)
     echo '<script src="'.$EXTERNAL_ASSETS_DIR.'/'.$x.'"></script>';
 }
 
