@@ -13,25 +13,29 @@ define("PASSWORD", "merdine98");
  $clubs_img= array(
   'segnati'=>'https://i0.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/goalfatti.png?zoom=1.25&fit=90%2C90',
   'subiti' =>'https://i1.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/goalsubiti.png?zoom=1.25&fit=90%2C90',
-'occasioni'=>'https://i1.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/occasioni.png?zoom=1.25&fit=90%2C90'
+  'occasioni'=>'https://i1.wp.com/guidafanta.altervista.org/wp-content/uploads/2017/07/occasioni.png?zoom=1.25&fit=90%2C90'
  );
 
 
 //some default functions
-function load_css($css_links)
-{
-  foreach ($css_links as $i => $value)
-  {
-    echo '<link href="'.plugins_url('dati-sportpress/include').'/'.$css_links[$i].'" rel="stylesheet">';
-  }
-}
-
-function load_js($js_links)
+function load_js($css_links)
 {
   for($i=0;$i<count($js_links);$i++)
   {
-    echo '<script src="'.plugins_url('dati-sportpress/include').'/'.$js_links[$i].'"></script>';
+    wp_register_script( 'custom_js'.$i, plugins_url('dati-sportpress/include').'/'.$js_links($i));
   }
+  for($i=0;$i<count($js_links);$i++)
+     wp_enqueue_script('custom_js'.$i);
+}
+
+function load_css($js_links)
+{
+  for($i=0;$i<count($css_links);$i++)
+  {
+     wp_register_style('custom_css'.$i, plugins_url('dati-sportpress/include').'/'.$css_links[$i]);
+  }
+  for($i=0;$i<count($css_links);$i++)
+     wp_enqueue_style('custom_css'.$i);
 }
 
 //connect db function
