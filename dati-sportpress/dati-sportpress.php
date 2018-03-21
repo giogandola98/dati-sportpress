@@ -67,6 +67,10 @@ function print_squadra_form()
    run_query($segnati,$subiti,$occasioni);
    load_css($css_links);
    load_js($js_links);
+   wp_enqueue_style('custom_css0');
+   wp_enqueue_style('custom_css1');
+   wp_enqueue_script('custom_js0');
+   wp_enqueue_style('custom_css2');
    echo '
        <section id="counter" class="counter">
              <div class="main_counter_area">
@@ -88,14 +92,10 @@ echo'
                      </div>
                  </div>
              </div>
-         </section>
-
- <script type="text/javascript">
-             jQuery(\'.statistic-counter\').counterUp({
-                 delay: 4,
-                 time: 2000
-             });
-  </script>';
+         </section>';
+         wp_enqueue_script('custom_js1');
+         wp_enqueue_script('custom_js2');
+         wp_enqueue_style('custom_js_bonus');
 }
 
 

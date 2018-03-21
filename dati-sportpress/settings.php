@@ -6,7 +6,7 @@ define("PASSWORD", "merdine98");
 
 //external js and css links path
 
- $js_links=array('jquery-1.11.1.min.js.trasferimento','jquery.waypoints.min.js.trasferimento','jquery.counterup.min.js.trasferimento');
+ $js_links=array('jquery-1.11.1.min.js','jquery.waypoints.min.js','jquery.counterup.min.js');
  $css_links=array('./bootstrap.min.css','stylesheets.css','font-awesome.min.css');
 
 //player images vector
@@ -18,24 +18,21 @@ define("PASSWORD", "merdine98");
 
 
 //some default functions
-function load_js($css_links)
+function load_js($js_links)
 {
   for($i=0;$i<count($js_links);$i++)
   {
-    wp_register_script( 'custom_js'.$i, plugins_url('dati-sportpress/include').'/'.$js_links($i));
+     wp_register_script('custom_js'.$i, plugins_url('dati-sportpress/include').'/'.$js_links[$i]);
   }
-  for($i=0;$i<count($js_links);$i++)
-     wp_enqueue_script('custom_js'.$i);
+  wp_register_script( 'custom_js_bonus', plugins_url('dati-sportpress/include').'/'.'bonus.js');
 }
 
-function load_css($js_links)
+function load_css($css_links)
 {
   for($i=0;$i<count($css_links);$i++)
   {
      wp_register_style('custom_css'.$i, plugins_url('dati-sportpress/include').'/'.$css_links[$i]);
   }
-  for($i=0;$i<count($css_links);$i++)
-     wp_enqueue_style('custom_css'.$i);
 }
 
 //connect db function
