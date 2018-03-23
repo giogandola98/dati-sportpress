@@ -1,4 +1,3 @@
-
 <?php
 /*
 Plugin Name:  Dati-sportpress
@@ -53,12 +52,12 @@ function print_single_counter($value,$description,$imglink)
 {
   echo '
       <div class="col-md-3">
-          <div class="single_counter p-y-2 m-t-1">
+        <div class="single_counter p-y-2 m-t-1">
               <i class="m-b-1"><img src="'.$imglink.'"></i>
               <h2 class="statistic-counter">'.$value.'</h2>
               <p class="my-counter">'.$description.'</p>
-          </div>
-      </div>';
+        </div>
+    </div>';
 }
 function print_squadra_form()
 {
@@ -69,32 +68,29 @@ function print_squadra_form()
    load_js($js_links);
    wp_enqueue_style('custom_css0');
    wp_enqueue_style('custom_css1');
-   wp_enqueue_script('custom_js0');
    wp_enqueue_style('custom_css2');
    echo '
-       <section id="counter" class="counter">
+       <section id="counter_custom" class="counter_custom">
              <div class="main_counter_area">
-                 <div class="overlay p-y-3">
-                     <div class="container">
+                 <div class="overlay p-y-3">';
+                    // <div class="container">
+                    echo'
                          <div class="row">
                          <div class="main_counter_content text-center white-text wow fadeInUp">';
-                         print_r($clubs_img);
-                         print_r($clubs_img["segnati"]);
-                         echo 'ciao';
                          print_single_counter($segnati,"Goal Segnati",$clubs_img["segnati"]);
-                         print_single_counter($segnati,"Goal Subiti",$clubs_img["subiti"]);
-                         print_single_counter($segnati,"Occasioni",$clubs_img["occasioni"]);
+                         print_single_counter($subiti,"Goal Subiti",$clubs_img["subiti"]);
+                         print_single_counter($occasioni,"Occasioni",$clubs_img["occasioni"]);
 
-echo'
-                                 </div>
-                             </div>
+echo'';
+                                // </div>
+                          echo'   </div>
                          </div>
                      </div>
                  </div>
              </div>
          </section>';
-         wp_enqueue_script('custom_js1');
-         wp_enqueue_script('custom_js2');
+         //wp_enqueue_script('custom_js1');
+         //wp_enqueue_script('custom_js2');
          wp_enqueue_style('custom_js_bonus');
 }
 
